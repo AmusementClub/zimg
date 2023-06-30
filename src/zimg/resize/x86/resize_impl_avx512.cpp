@@ -561,35 +561,35 @@ inline FORCE_INLINE __m512 resize_line_v_fp_avx512_xiter(unsigned j,
 	__m512 accum1 = _mm512_setzero_ps();
 	__m512 x;
 
-	if (N >= 0) {
+	if (N >= 1) {
 		x = Traits::load16(src_p0 + j);
 		accum0 = UpdateAccum ? _mm512_fmadd_ps(c0, x, Traits::load16(accum_p + j)) : _mm512_mul_ps(c0, x);
 	}
-	if (N >= 1) {
+	if (N >= 2) {
 		x = Traits::load16(src_p1 + j);
 		accum1 = _mm512_mul_ps(c1, x);
 	}
-	if (N >= 2) {
+	if (N >= 3) {
 		x = Traits::load16(src_p2 + j);
 		accum0 = _mm512_fmadd_ps(c2, x, accum0);
 	}
-	if (N >= 3) {
+	if (N >= 4) {
 		x = Traits::load16(src_p3 + j);
 		accum1 = _mm512_fmadd_ps(c3, x, accum1);
 	}
-	if (N >= 4) {
+	if (N >= 5) {
 		x = Traits::load16(src_p4 + j);
 		accum0 = _mm512_fmadd_ps(c4, x, accum0);
 	}
-	if (N >= 5) {
+	if (N >= 6) {
 		x = Traits::load16(src_p5 + j);
 		accum1 = _mm512_fmadd_ps(c5, x, accum1);
 	}
-	if (N >= 6) {
+	if (N >= 7) {
 		x = Traits::load16(src_p6 + j);
 		accum0 = _mm512_fmadd_ps(c6, x, accum0);
 	}
-	if (N >= 7) {
+	if (N >= 8) {
 		x = Traits::load16(src_p7 + j);
 		accum1 = _mm512_fmadd_ps(c7, x, accum1);
 	}
